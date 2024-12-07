@@ -9,6 +9,7 @@ from utils import get_dtype_training, log_data_make_loss_high
 import os
 from models.unet import UNet2DConditionModel
 from models.attention import skip_encoder_hidden_state
+from models.utils_model import get_trainable_module
 from dataclasses import dataclass
 
 @dataclass
@@ -18,28 +19,18 @@ class TrainableParameters:
     learning_rate: float
 
     def get_unet_trainable_parameters(self):
-        # trainable_params = {}
-        # for name, param in self.unet.named_parameters():
-        #     if "to_out" in name: 
-        #         param.requires_grad = True
-        #         trainable_params[name] = param
-        #     else:
-        #         param.requires_grad = False 
-        # return trainable_params
         
-        trainable_params= self.unet.named_parameters()
-        
+        trainable_params = get_trainable_module(self.unet,"attention")        
         return trainable_params
 
     def get_optimizer_parameters(self):
         
         optimizer_params = []
-        optimizer_params.append({"params": self.unet.parameters(),"lr": self.learning_rate})
+        # optimizer_params.append({"params": self.unet.parameters(),"lr": self.learning_rate})
 
-
-        # unet_trainable_params = self.get_unet_trainable_parameters()
-        # for name, param in unet_trainable_params.items():
-        #     optimizer_params.append({"params": param, "lr": self.learning_rate})
+        unet_trainable_params = self.get_unet_trainable_parameters()
+        for name, param in unet_trainable_params.items():
+            optimizer_params.append({"params": param, "lr": self.learning_rate})
 
         return optimizer_params
         
