@@ -1,7 +1,5 @@
-from pipeline.pipeline_stable_diffusion_inpainting_controlnext import StableDiffusionInpaintControlnextV1
-from models.unet import UNet2DConditionModelControlNext, UNet2DConditionModelControlNext_XL
-from models.controlnext import ControlNeXtModel, ControlNeXtModelXL, ControlNeXtModelSelfAttention
-import torch
+from pipeline.pipeline_stable_diffusion_cat import StableDiffusionInpaintConCat
+from models.unet import UNet2DConditionModel
 from utils import load_safetensors
 from PIL import Image
 import os
@@ -9,22 +7,20 @@ from models.attention import skip_encoder_hidden_state, SkipAttnProcessor
 from diffusers import (
     AutoencoderKL,
     DDPMScheduler,)
+import torch
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 
-controlnext = ControlNeXtModelXL()
-load_safetensors(controlnext, '/home/tiennv/trang/chaos/controlnext/khongquantrong/save_weight/controlnext.bin')
-unet = UNet2DConditionModelControlNext_XL.from_pretrained('/home/tiennv/trang/chaos/controlnext/weight_pretrain/unet_inpainting')
+unet = UNet2DConditionModel.from_pretrained('/home/tiennv/trang/chaos/controlnext/weight_pretrain/unet_inpainting')
 load_safetensors(unet, r'/home/tiennv/trang/chaos/controlnext/khongquantrong/save_weight/diffusion_pytorch_model.bin',strict= False)
 skip_encoder_hidden_state(unet,cross_attn_cls= SkipAttnProcessor )
 
 output_type = 'latent'
 scheduler = DDPMScheduler.from_pretrained(
                 'botp/stable-diffusion-v1-5-inpainting', subfolder="scheduler", prediction_type = 'v_prediction')
-pipeline = StableDiffusionInpaintControlnextV1.from_pretrained(
+pipeline = StableDiffusionInpaintConCat.from_pretrained(
     'botp/stable-diffusion-v1-5-inpainting', 
     unet= unet, 
-    controlnet= controlnext, 
     dtype = torch.float32,
     output_type = output_type,
     scheduler= scheduler
