@@ -1,0 +1,91 @@
+An error occurred while trying to fetch /home/weight_pretrain/unet: Error no file named diffusion_pytorch_model.safetensors found in directory /home/weight_pretrain/unet.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/utilities/parsing.py:208: Attribute 'unet' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['unet'])`.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loggers/wandb.py:396: There is a wandb run already in progress and newly created instances of `WandbLogger` will reuse this run. If this is not desired, call `wandb.finish()` before instantiating `WandbLogger`.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:377: Found unsupported keys in the optimizer configuration: {'interval', 'scheduler'}
+
+  | Name | Type                 | Params | Mode
+-----------------------------------------------------
+0 | unet | UNet2DConditionModel | 859 M  | eval
+-----------------------------------------------------
+859 M     Trainable params
+0         Non-trainable params
+859 M     Total params
+3,438.141 Total estimated model params size (MB)
+32        Modules in train mode
+686       Modules in eval mode
+Epoch 0:   0%|                   | 0/82 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/CATDF-Diffusion/script_run/../train.py", line 285, in <module>
+    main()
+  File "/home/CATDF-Diffusion/script_run/../train.py", line 274, in main
+    trainer.fit(
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/trainer/trainer.py", line 538, in fit
+    call._call_and_handle_interrupt(
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/trainer/call.py", line 47, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/trainer/trainer.py", line 574, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/trainer/trainer.py", line 981, in _run
+    results = self._run_stage()
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/trainer/trainer.py", line 1025, in _run_stage
+    self.fit_loop.run()
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loops/fit_loop.py", line 205, in run
+    self.advance()
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loops/fit_loop.py", line 363, in advance
+    self.epoch_loop.run(self._data_fetcher)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loops/training_epoch_loop.py", line 140, in run
+    self.advance(data_fetcher)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loops/training_epoch_loop.py", line 212, in advance
+    batch, _, __ = next(data_fetcher)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loops/fetchers.py", line 133, in __next__
+    batch = super().__next__()
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loops/fetchers.py", line 60, in __next__
+    batch = next(self.iterator)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/utilities/combined_loader.py", line 341, in __next__
+    out = next(self._iterator)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/utilities/combined_loader.py", line 78, in __next__
+    out[i] = next(self.iterators[i])
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 631, in __next__
+    data = self._next_data()
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1346, in _next_data
+    return self._process_data(data)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1372, in _process_data
+    data.reraise()
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/torch/_utils.py", line 722, in reraise
+    raise exception
+KeyError: Caught KeyError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3805, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7081, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7089, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'index_fill_image_key'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/CATDF-Diffusion/dataset_deepfuniture_img2img.py", line 346, in __getitem__
+    data= self.load_saved_embeddings(idx)
+  File "/home/CATDF-Diffusion/dataset_deepfuniture_img2img.py", line 323, in load_saved_embeddings
+    "index_fill_image": npz_file[row["index_fill_image_key"]]
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/pandas/core/series.py", line 1121, in __getitem__
+    return self._get_value(key)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/pandas/core/series.py", line 1237, in _get_value
+    loc = self.index.get_loc(label)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    raise KeyError(key) from err
+KeyError: 'index_fill_image_key'

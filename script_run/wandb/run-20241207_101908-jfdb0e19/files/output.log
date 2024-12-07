@@ -1,0 +1,32 @@
+An error occurred while trying to fetch botp/stable-diffusion-v1-5-inpainting: botp/stable-diffusion-v1-5-inpainting does not appear to have a file named diffusion_pytorch_model.safetensors.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+You are using a model of type clip_text_model to instantiate a model of type . This is not supported for all configurations of models and can yield errors.
+Processing batches:   0%|                                                           | 0/654 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/CATDF-Diffusion/script_run/../train.py", line 284, in <module>
+    main()
+  File "/home/CATDF-Diffusion/script_run/../train.py", line 223, in main
+    embedding.save_embeddings_to_npz('cuda')
+  File "/home/CATDF-Diffusion/embedding_data.py", line 35, in save_embeddings_to_npz
+    for i, batch in tqdm(enumerate(self.data_loader), total=len(self.data_loader), desc="Processing batches"):
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/tqdm/std.py", line 1181, in __iter__
+    for obj in iterable:
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 631, in __next__
+    data = self._next_data()
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 675, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "/home/CATDF-Diffusion/dataset_deepfuniture_img2img.py", line 340, in __getitem__
+    batch = self.make_data(image_path,fill_image, bbox_string, mask_string)
+  File "/home/CATDF-Diffusion/dataset_deepfuniture_img2img.py", line 304, in make_data
+    "latents_target": self.image_transforms(pixel_values),
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/torchvision/transforms/transforms.py", line 95, in __call__
+    img = t(img)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/torchvision/transforms/transforms.py", line 137, in __call__
+    return F.to_tensor(pic)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/torchvision/transforms/functional.py", line 167, in to_tensor
+    img = torch.from_numpy(np.array(pic, mode_to_nptype.get(pic.mode, np.uint8), copy=True))
+TypeError: expected np.ndarray (got numpy.ndarray)

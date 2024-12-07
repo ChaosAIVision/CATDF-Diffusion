@@ -1,0 +1,35 @@
+vae/config.json: 100%|██████████████████████████████████████████████████████████████| 552/552 [00:00<00:00, 1.06MB/s]
+An error occurred while trying to fetch botp/stable-diffusion-v1-5-inpainting: botp/stable-diffusion-v1-5-inpainting does not appear to have a file named diffusion_pytorch_model.safetensors.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+diffusion_pytorch_model.bin: 100%|████████████████████████████████████████████████| 335M/335M [00:08<00:00, 40.2MB/s]
+tokenizer/tokenizer_config.json: 100%|██████████████████████████████████████████████| 806/806 [00:00<00:00, 1.72MB/s]
+tokenizer/vocab.json: 100%|█████████████████████████████████████████████████████| 1.06M/1.06M [00:00<00:00, 2.90MB/s]
+tokenizer/merges.txt: 100%|███████████████████████████████████████████████████████| 525k/525k [00:00<00:00, 3.14MB/s]
+tokenizer/special_tokens_map.json: 100%|████████████████████████████████████████████| 472/472 [00:00<00:00, 1.42MB/s]
+text_encoder/config.json: 100%|█████████████████████████████████████████████████████| 617/617 [00:00<00:00, 1.28MB/s]
+You are using a model of type clip_text_model to instantiate a model of type . This is not supported for all configurations of models and can yield errors.
+pytorch_model.bin: 100%|██████████████████████████████████████████████████████████| 492M/492M [00:08<00:00, 56.7MB/s]
+[2024-12-07 10:02:12,231] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 1
+Failed to initialize text encoder: Unable to JIT load the async_io op due to it not being compatible due to hardware/software issue. None
+Traceback (most recent call last):
+  File "/home/CATDF-Diffusion/script_run/../train.py", line 284, in <module>
+    main()
+  File "/home/CATDF-Diffusion/script_run/../train.py", line 215, in main
+    embedding = EmbeddingData(
+  File "/home/CATDF-Diffusion/embedding_data.py", line 19, in __init__
+    self.vae = vae.to(dtype= self.weight_dtype, device = 'cuda')
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/diffusers/models/modeling_utils.py", line 1031, in to
+    return super().to(*args, **kwargs)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1152, in to
+    return self._apply(convert)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/torch/nn/modules/module.py", line 802, in _apply
+    module._apply(fn)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/torch/nn/modules/module.py", line 802, in _apply
+    module._apply(fn)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/torch/nn/modules/module.py", line 825, in _apply
+    param_applied = fn(param)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1150, in convert
+    return t.to(device, dtype if t.is_floating_point() or t.is_complex() else None, non_blocking)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/torch/cuda/__init__.py", line 302, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: No CUDA GPUs are available

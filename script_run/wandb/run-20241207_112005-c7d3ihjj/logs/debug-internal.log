@@ -1,0 +1,16 @@
+{"time":"2024-12-07T11:20:05.54544561Z","level":"INFO","msg":"using version","core version":"0.19.0"}
+{"time":"2024-12-07T11:20:05.54550881Z","level":"INFO","msg":"created symlink","path":"/home/CATDF-Diffusion/script_run/wandb/run-20241207_112005-c7d3ihjj/logs/debug-core.log"}
+{"time":"2024-12-07T11:20:05.652282736Z","level":"INFO","msg":"created new stream","id":"c7d3ihjj"}
+{"time":"2024-12-07T11:20:05.652392166Z","level":"INFO","msg":"stream: started","id":"c7d3ihjj"}
+{"time":"2024-12-07T11:20:05.652514039Z","level":"INFO","msg":"writer: Do: started","stream_id":"c7d3ihjj"}
+{"time":"2024-12-07T11:20:05.652620991Z","level":"INFO","msg":"handler: started","stream_id":"c7d3ihjj"}
+{"time":"2024-12-07T11:20:05.652748077Z","level":"INFO","msg":"sender: started","stream_id":"c7d3ihjj"}
+{"time":"2024-12-07T11:20:05.95098589Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-07T11:20:33.281949272Z","level":"INFO","msg":"stream: closing","id":"c7d3ihjj"}
+{"time":"2024-12-07T11:20:33.282358279Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-12-07T11:20:33.286565581Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-12-07T11:20:34.124172927Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-12-07T11:20:34.32759919Z","level":"INFO","msg":"handler: closed","stream_id":"c7d3ihjj"}
+{"time":"2024-12-07T11:20:34.32767204Z","level":"INFO","msg":"writer: Close: closed","stream_id":"c7d3ihjj"}
+{"time":"2024-12-07T11:20:34.327702839Z","level":"INFO","msg":"sender: closed","stream_id":"c7d3ihjj"}
+{"time":"2024-12-07T11:20:34.327915121Z","level":"INFO","msg":"stream: closed","id":"c7d3ihjj"}
