@@ -27,8 +27,8 @@ def collate_fn_embedding(examples):
     mask_pixel_values = torch.stack([example['mask_pixel_values'] for example in examples])
     mask_pixel_values = mask_pixel_values.to(memory_format=torch.contiguous_format)
     
-    index_fill_image = torch.stack([example['index_fill_image'] for example in examples])
-    index_fill_image = index_fill_image.to(memory_format=torch.contiguous_format)
+    # index_fill_image = torch.stack([example['index_fill_image'] for example in examples])
+    # index_fill_image = index_fill_image.to(memory_format=torch.contiguous_format)
     
 
     return {
@@ -36,7 +36,7 @@ def collate_fn_embedding(examples):
         "latents_masked": latents_masked,
         'fill_pixel_values': fill_pixel_values,
         'mask_pixel_values': mask_pixel_values,
-        'index_fill_image': index_fill_image
+        # 'index_fill_image': index_fill_image
     }
 
 
@@ -56,8 +56,8 @@ def collate_fn(examples):
     encoder_hidden_state = torch.stack([example['encoder_hidden_state'] for example in examples])
     encoder_hidden_state = encoder_hidden_state.to(memory_format=torch.contiguous_format)
     
-    index_fill_image = torch.stack([example['index_fill_image'] for example in examples])
-    index_fill_image = index_fill_image.to(memory_format=torch.contiguous_format)
+    # index_fill_image = torch.stack([example['index_fill_image'] for example in examples])
+    # index_fill_image = index_fill_image.to(memory_format=torch.contiguous_format)
     
     return {
         "latents_target": latents_target,
@@ -65,7 +65,7 @@ def collate_fn(examples):
         'fill_pixel_values': fill_pixel_values,
         'mask_pixel_values': mask_pixel_values,
         'encoder_hidden_state': encoder_hidden_state,
-        'index_fill_image': index_fill_image
+        # 'index_fill_image': index_fill_image
 
     }
 
@@ -299,7 +299,6 @@ class Deepfurniture_Dataset_V1(Dataset):
         # fill_images = self.make_fill(pixel_values, identites, bboxes_annotation)
         masked_image = self.get_masked_image_with_bbox(pixel_values, bboxes_annotation)
         text = "make picture high quality and harmonization "
-
         return {
             "latents_target": self.image_transforms(pixel_values),
             "latents_masked": self.image_transforms(masked_image),
@@ -321,7 +320,7 @@ class Deepfurniture_Dataset_V1(Dataset):
                 "mask_pixel_values": npz_file[row["mask_pixel_values__key"]],
                 "encoder_hidden_state": npz_file[row["encoder_hidden_state_key"]],
                 "fill_pixel_values": npz_file[row["fill_pixel_values_key"]],
-                "index_fill_image": npz_file[row["index_fill_image_key"]]
+                # "index_fill_image": npz_file[row["index_fill_image_key"]]
                 
                 
             }
@@ -352,7 +351,7 @@ class Deepfurniture_Dataset_V1(Dataset):
                 "mask_pixel_values": torch.tensor(data['mask_pixel_values']).to(dtype= self.dtype).squeeze(0),
                 "encoder_hidden_state": torch.tensor(data['encoder_hidden_state']).to(dtype= self.dtype).squeeze(0),
                 "fill_pixel_values": torch.tensor(data['fill_pixel_values']).to(dtype= self.dtype).squeeze(0),
-                'index_fill_image': torch.tensor(data['index_fill_image']).to(dtype= self.dtype).squeeze(0)
+                # 'index_fill_image': torch.tensor(data['index_fill_image']).to(dtype= self.dtype).squeeze(0)
             }
 
 

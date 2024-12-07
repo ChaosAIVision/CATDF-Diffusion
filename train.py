@@ -2,7 +2,7 @@
 import torch._dynamo
 torch._dynamo.config.suppress_errors = True
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = "1"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 from models.unet import UNet2DConditionModel
 from models.vae import AutoencoderKL
 import argparse
@@ -50,7 +50,7 @@ from lightning.pytorch.callbacks import ModelCheckpoint, LearningRateMonitor
 from lightning.pytorch import Trainer
 from lightning.pytorch.loggers import WandbLogger
 from models.attention import skip_encoder_hidden_state, SkipAttnProcessor
-from trainer import LitSDPix2PixControlnext, TrainableParameters, LitSDCATDF_v1
+from trainer import  TrainableParameters, LitSDCATDF_v1
 # Will error if the minimal version of diffusers is not installed. Remove at your own risks.
 check_min_version("0.29.0.dev0")
 
@@ -223,6 +223,11 @@ def main():
         embedding.save_embeddings_to_npz('cuda')
     
     unet, scheduler = model_trainable.run_load_model(is_data_embedding=False)
+    for name, param in unet.named_parameters():
+        if "attn1" in name:  
+            param.requires_grad = True  
+        else:
+            param.requires_grad = False  
 
     del model_trainable
     # print(scheduler.config.prediction_type)
@@ -243,6 +248,7 @@ def main():
         noise_scheduler=scheduler,    
         device_train='cuda',
         scheduler_optimizer_config=param_train_config,
+        args= args
     )
 
     # Define checkpoint callback

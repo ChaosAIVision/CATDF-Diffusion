@@ -29,8 +29,16 @@ class TrainableParameters:
         # optimizer_params.append({"params": self.unet.parameters(),"lr": self.learning_rate})
 
         unet_trainable_params = self.get_unet_trainable_parameters()
-        for name, param in unet_trainable_params.items():
-            optimizer_params.append({"params": param, "lr": self.learning_rate})
+        # for name, param in unet_trainable_params.items():
+        #     optimizer_params.append({"params": param, "lr": self.learning_rate})
+        seen_params = set()
+        if isinstance(unet_trainable_params, torch.nn.ModuleList):
+            for module in unet_trainable_params:
+                for param in module.parameters():
+                    if param not in seen_params:  # Kiểm tra tham số đã tồn tại chưa
+                        optimizer_params.append({"params": param, "lr": self.learning_rate})
+                        seen_params.add(param)  # Đánh dấu tham số đã thêm
+        del seen_params
 
         return optimizer_params
         
@@ -82,13 +90,13 @@ class LitSDCATDF_v1(LightningModule):
         mask_pixel_values = batch['mask_pixel_values'].to(device)
         fill_pixel_values = batch['fill_pixel_values'].to(device)
 
-        # Create index to handle loss
-        index_fill_image = (batch['index_fill_image'].to('cpu'))
-        index_fill_image_list = index_fill_image.flatten().tolist()  
-        index_fill_image_list = [int(idx) for idx in index_fill_image_list] 
+        # # Create index to handle loss
+        # index_fill_image = (batch['index_fill_image'].to('cpu'))
+        # index_fill_image_list = index_fill_image.flatten().tolist()  
+        # index_fill_image_list = [int(idx) for idx in index_fill_image_list] 
 
         # Log index make handle loss
-        log_complexity_data_idx_path = os.path.join(self.args.output_dir,'/log_complexity_data_idx.json')
+        # log_complexity_data_idx_path = os.path.join(self.args.output_dir,'/log_complexity_data_idx.json')
 
         # Create timesteps
         bsz = latents_target.shape[0]
@@ -102,7 +110,7 @@ class LitSDCATDF_v1(LightningModule):
         mask_latent_concat = torch.cat([mask_latent, torch.zeros_like(mask_latent)], dim=concat_dim)
 
         # Padding latent target to fit shape masked_latent and mask
-        latent_target_concat = torch.cat([latents_target, torch.zeros_like(mask_latent)], dim=concat_dim)
+        latent_target_concat = torch.cat([latents_target, torch.zeros_like(latents_target)], dim=concat_dim)
 
 
         # Add noise to latents_target
@@ -119,12 +127,12 @@ class LitSDCATDF_v1(LightningModule):
         )
 
         # Remove padding of prediction to caculate loss         
-        model_pred = model_pred.split(model_pred.shape[concat_dim] // 2, dim=concat_dim)[0]
+        # model_pred = model_pred.split(model_pred.shape[concat_dim] // 2, dim=concat_dim)[0]
 
         if self.noise_scheduler.config.prediction_type == "epsilon":
             target = noise
         elif self.noise_scheduler.config.prediction_type == "v_prediction":
-            target = self.noise_scheduler.get_velocity(latents_target, noise, timesteps)
+            target = self.noise_scheduler.get_velocity(latent_target_concat, noise, timesteps)
         elif self.noise_scheduler.config.prediction_type == "sample":
             # We set the target to latents here, but the model_pred will return the noise sample prediction.
             target = latents_target
@@ -151,12 +159,12 @@ class LitSDCATDF_v1(LightningModule):
         loss = loss.mean()
         loss_value = loss.item()
 
-        log_data_make_loss_high(
-        loss_value=loss_value,
-        idx_list=index_fill_image_list,  
-        loss_threshold=0.05,
-        save_log_path=log_complexity_data_idx_path
-    )
+    #     log_data_make_loss_high(
+    #     loss_value=loss_value,
+    #     idx_list=index_fill_image_list,  
+    #     loss_threshold=0.05,
+    #     save_log_path=log_complexity_data_idx_path
+    # )
 
         # Log metrics
         self.log("train_loss", loss, prog_bar=True, on_step=True,on_epoch=True,logger=True, sync_dist=True)
@@ -172,7 +180,7 @@ class LitSDCATDF_v1(LightningModule):
             eps= self.args.adam_epsilon
             
         )
-        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer,T_max=100,eta_min=0
     )
         scheduler_optimizer_config ={
             'scheduler': scheduler,
