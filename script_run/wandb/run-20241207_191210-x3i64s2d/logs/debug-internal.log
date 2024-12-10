@@ -1,0 +1,16 @@
+{"time":"2024-12-07T19:12:11.014910474Z","level":"INFO","msg":"using version","core version":"0.19.0"}
+{"time":"2024-12-07T19:12:11.014984045Z","level":"INFO","msg":"created symlink","path":"/home/CATDF-Diffusion/script_run/wandb/run-20241207_191210-x3i64s2d/logs/debug-core.log"}
+{"time":"2024-12-07T19:12:11.124266979Z","level":"INFO","msg":"created new stream","id":"x3i64s2d"}
+{"time":"2024-12-07T19:12:11.124604723Z","level":"INFO","msg":"stream: started","id":"x3i64s2d"}
+{"time":"2024-12-07T19:12:11.124705663Z","level":"INFO","msg":"writer: Do: started","stream_id":"x3i64s2d"}
+{"time":"2024-12-07T19:12:11.124795609Z","level":"INFO","msg":"sender: started","stream_id":"x3i64s2d"}
+{"time":"2024-12-07T19:12:11.125322627Z","level":"INFO","msg":"handler: started","stream_id":"x3i64s2d"}
+{"time":"2024-12-07T19:12:11.38450432Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-07T19:12:14.621675793Z","level":"INFO","msg":"stream: closing","id":"x3i64s2d"}
+{"time":"2024-12-07T19:12:14.62194171Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-12-07T19:12:14.625688625Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-12-07T19:12:15.15338501Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-12-07T19:12:15.351275369Z","level":"INFO","msg":"handler: closed","stream_id":"x3i64s2d"}
+{"time":"2024-12-07T19:12:15.351343848Z","level":"INFO","msg":"writer: Close: closed","stream_id":"x3i64s2d"}
+{"time":"2024-12-07T19:12:15.351364258Z","level":"INFO","msg":"sender: closed","stream_id":"x3i64s2d"}
+{"time":"2024-12-07T19:12:15.351578087Z","level":"INFO","msg":"stream: closed","id":"x3i64s2d"}

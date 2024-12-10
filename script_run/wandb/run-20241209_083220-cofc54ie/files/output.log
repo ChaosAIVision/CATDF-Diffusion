@@ -1,0 +1,19 @@
+An error occurred while trying to fetch botp/stable-diffusion-v1-5-inpainting: botp/stable-diffusion-v1-5-inpainting does not appear to have a file named diffusion_pytorch_model.safetensors.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+Traceback (most recent call last):
+  File "/home/CATDF-Diffusion/script_run/../train.py", line 88, in init_vae
+    logger.info("Successfully initialized VAE model")
+NameError: name 'logger' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/CATDF-Diffusion/script_run/../train.py", line 291, in <module>
+    main()
+  File "/home/CATDF-Diffusion/script_run/../train.py", line 213, in main
+    vae, tokenizer, text_encoder = model_trainable.run_load_model(is_data_embedding=True)
+  File "/home/CATDF-Diffusion/script_run/../train.py", line 135, in run_load_model
+    self.init_vae()
+  File "/home/CATDF-Diffusion/script_run/../train.py", line 90, in init_vae
+    logger.error(f"Failed to initialize VAE model: {e}")
+NameError: name 'logger' is not defined

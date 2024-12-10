@@ -11,6 +11,7 @@ import os
 from pathlib import Path
 import pandas as pd
 from utils import check_image_in_dataset
+from PIL import ImageOps
 
 
 def collate_fn_embedding(examples):
@@ -285,6 +286,27 @@ class Deepfurniture_Dataset_V1(Dataset):
 
         return image
 
+    def pad_image_bottom(self, image, target_height):
+        """
+        Pad the bottom of the image to match the target height.
+
+        Args:
+            image (PIL.Image.Image): Input image.
+            target_height (int): Target height of the image.
+
+        Returns:
+            PIL.Image.Image: Image padded at the bottom to the target height.
+        """
+        width, height = image.size
+
+        # Calculate the amount of padding needed
+        pad_height = max(0, target_height - height)
+
+        # Apply padding only to the bottom
+        padding = (0, 0, 0, pad_height)  # (left, top, right, bottom)
+        padded_image = ImageOps.expand(image, border=padding, fill=(255, 255, 255))  # White padding
+        return padded_image
+
         
     def make_data(self, image_path,fill_image_path, bbox_string, mask_string):
         """
@@ -298,6 +320,10 @@ class Deepfurniture_Dataset_V1(Dataset):
         identites = self.get_fill_images(pixel_values,bboxes_annotation)
         # fill_images = self.make_fill(pixel_values, identites, bboxes_annotation)
         masked_image = self.get_masked_image_with_bbox(pixel_values, bboxes_annotation)
+
+
+        pixel_values = self.pad_image_to_target_size(pixel_values, (self.image_size, self.image_size // 2))
+
         text = "make picture high quality and harmonization "
         return {
             "latents_target": self.image_transforms(pixel_values),
@@ -328,8 +354,8 @@ class Deepfurniture_Dataset_V1(Dataset):
     def __getitem__(self, idx):
         if self.input_type == 'raw':
     
-            item = self.data.iloc[idx]
-            # item = self.data.iloc[3180]
+            # item = self.data.iloc[idx]
+            item = self.data.iloc[5]
             image_path = item['image_path']
             # fill_image = item['fill_image_path']
             fill_image = None
@@ -361,9 +387,9 @@ class Deepfurniture_Dataset_V1(Dataset):
 
 if __name__ == "__main__":
     import pandas as pd
-    data_csv_path = '/home/tiennv/trang/chaos/controlnext/data/datatest/data_high_quality.csv'
-    json_data_path = '/home/tiennv/trang/chaos/controlnext/khongquantrong/log_complexity_data_idx.json'
-    dataset  = dataset = Deepfurniture_Dataset_V1('/home/tiennv/trang/chaos/controlnext/data/datatest/data_high_quality.csv','raw','bf16',512)
-    check_image_in_dataset(dataset= dataset, data_csv_path=data_csv_path, json_data_path=json_data_path,number_idx= 5, output_image_folder_path='/home/tiennv/trang/chaos/controlnext/khongquantrong/check_images')
+    data_csv_path = '/home/data/data_high_quality.csv'
+    json_data_path = '/home/data/data.json'
+    dataset  = dataset = Deepfurniture_Dataset_V1('/home/data/data_high_quality.csv','raw','bf16',512)
+    check_image_in_dataset(dataset= dataset, data_csv_path=data_csv_path, json_data_path=json_data_path,number_idx= 5, output_image_folder_path='/home/data')
 
 #    

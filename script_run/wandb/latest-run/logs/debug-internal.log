@@ -1,9 +1,16 @@
-{"time":"2024-12-07T11:46:07.281902243Z","level":"INFO","msg":"using version","core version":"0.19.0"}
-{"time":"2024-12-07T11:46:07.281955977Z","level":"INFO","msg":"created symlink","path":"/home/CATDF-Diffusion/script_run/wandb/run-20241207_114607-nrp0asuf/logs/debug-core.log"}
-{"time":"2024-12-07T11:46:07.3890073Z","level":"INFO","msg":"created new stream","id":"nrp0asuf"}
-{"time":"2024-12-07T11:46:07.38912922Z","level":"INFO","msg":"stream: started","id":"nrp0asuf"}
-{"time":"2024-12-07T11:46:07.389224227Z","level":"INFO","msg":"writer: Do: started","stream_id":"nrp0asuf"}
-{"time":"2024-12-07T11:46:07.389322667Z","level":"INFO","msg":"handler: started","stream_id":"nrp0asuf"}
-{"time":"2024-12-07T11:46:07.389393154Z","level":"INFO","msg":"sender: started","stream_id":"nrp0asuf"}
-{"time":"2024-12-07T11:46:07.666191256Z","level":"INFO","msg":"Starting system monitor"}
-{"time":"2024-12-07T13:27:38.22309515Z","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": read tcp 172.17.0.2:32942->35.186.228.49:443: read: connection reset by peer"}
+{"time":"2024-12-09T19:09:02.387957709Z","level":"INFO","msg":"using version","core version":"0.19.0"}
+{"time":"2024-12-09T19:09:02.388031438Z","level":"INFO","msg":"created symlink","path":"/home/CATDF-Diffusion/script_run/wandb/run-20241209_190902-7it4510k/logs/debug-core.log"}
+{"time":"2024-12-09T19:09:02.494952509Z","level":"INFO","msg":"created new stream","id":"7it4510k"}
+{"time":"2024-12-09T19:09:02.495027555Z","level":"INFO","msg":"stream: started","id":"7it4510k"}
+{"time":"2024-12-09T19:09:02.495149572Z","level":"INFO","msg":"writer: Do: started","stream_id":"7it4510k"}
+{"time":"2024-12-09T19:09:02.495259598Z","level":"INFO","msg":"handler: started","stream_id":"7it4510k"}
+{"time":"2024-12-09T19:09:02.495311431Z","level":"INFO","msg":"sender: started","stream_id":"7it4510k"}
+{"time":"2024-12-09T19:09:02.818354057Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-09T19:35:16.933533481Z","level":"INFO","msg":"stream: closing","id":"7it4510k"}
+{"time":"2024-12-09T19:35:16.933947511Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-12-09T19:35:16.93897282Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-12-09T19:35:17.622135459Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-12-09T19:35:17.882129857Z","level":"INFO","msg":"handler: closed","stream_id":"7it4510k"}
+{"time":"2024-12-09T19:35:17.88221867Z","level":"INFO","msg":"writer: Close: closed","stream_id":"7it4510k"}
+{"time":"2024-12-09T19:35:17.882300862Z","level":"INFO","msg":"sender: closed","stream_id":"7it4510k"}
+{"time":"2024-12-09T19:35:17.882632157Z","level":"INFO","msg":"stream: closed","id":"7it4510k"}

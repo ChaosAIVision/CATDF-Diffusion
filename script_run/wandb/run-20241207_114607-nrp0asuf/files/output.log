@@ -19,5 +19,8 @@ LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
 3,438.141 Total estimated model params size (MB)
 32        Modules in train mode
 686       Modules in eval mode
-Epoch 52:  34%|████▍        | 37/109 [01:55<03:45,  0.32it/s, v_num=asuf, train_loss_step=0.00286, train_loss_epoch=0.00236]                                                                
+Epoch 70:  39%|█████▌        | 43/109 [02:11<03:21,  0.33it/s, v_num=asuf, train_loss_step=0.00793, train_loss_epoch=0.0023]                                                                
 /opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/trainer/connectors/logger_connector/result.py:431: It is recommended to use `self.log('train_loss', ..., sync_dist=True)` when logging on epoch level in distributed setting to accumulate the metric across devices.
+[rank: 0] Received SIGTERM: 15
+
+Detected KeyboardInterrupt, attempting graceful shutdown ...

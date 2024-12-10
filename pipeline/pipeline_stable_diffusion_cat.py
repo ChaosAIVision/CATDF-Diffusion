@@ -321,8 +321,8 @@ class StableDiffusionInpaintConCat(StableDiffusionInpaintPipeline):
         latents_outputs = self.prepare_latents(
             batch_size * num_images_per_prompt,
             num_channels_latents,
-            height,
-            width * 2,
+            height * 2,
+            width ,
             prompt_embeds.dtype,
             device,
             generator,
@@ -375,7 +375,7 @@ class StableDiffusionInpaintConCat(StableDiffusionInpaintPipeline):
         ) 
 
 
-        image_fill_latents =  self.vae.encode(image_fill_latents.to(dtype=self.weight_dtype,device = 'cuda')).latent_dist.sample()
+        image_fill_latents =  self.vae.encode(image_fill.to(device = 'cuda')).latent_dist.sample()
         image_fill_latents = image_fill_latents * self.vae.config.scaling_factor
 
 
@@ -438,6 +438,10 @@ class StableDiffusionInpaintConCat(StableDiffusionInpaintPipeline):
                 latent_model_input = self.scheduler.scale_model_input(latent_model_input, t)
 
                 if num_channels_unet == 9:
+                    print("latent_model_input shape:", latent_model_input.shape)
+                    print("mask_latent_concat shape:", mask_latent_concat.shape)
+                    print("masked_latent_concat shape:", masked_latent_concat.shape)
+
                     latent_model_input = torch.cat([latent_model_input, mask_latent_concat, masked_latent_concat], dim=1)
 
                 # predict the noise residual
@@ -462,8 +466,7 @@ class StableDiffusionInpaintConCat(StableDiffusionInpaintPipeline):
 
                 # compute the previous noisy sample x_t -> x_t-1
                 latents = self.scheduler.step(noise_pred, t, latents, **extra_step_kwargs, return_dict=False)[0]
-                latents = latents.split(latents.shape[concat_dim] // 2, dim=concat_dim)[0]
-                latents = 1 / self.vae.config.scaling_factor * latents
+               
 
                 if num_channels_unet == 4:
                     init_latents_proper = image_latents
@@ -507,6 +510,8 @@ class StableDiffusionInpaintConCat(StableDiffusionInpaintPipeline):
                 init_image = self._encode_vae_image(init_image, generator=generator)
                 mask_condition = mask_condition.to(device=device, dtype=masked_image_latents.dtype)
                 condition_kwargs = {"image": init_image_condition, "mask": mask_condition}
+            latents = latents.split(latents.shape[concat_dim] // 2, dim=concat_dim)[0]
+            latents = 1 / self.vae.config.scaling_factor * latents
             image = self.vae.decode(
                 latents / self.vae.config.scaling_factor, return_dict=False, generator=generator, **condition_kwargs
             )[0]

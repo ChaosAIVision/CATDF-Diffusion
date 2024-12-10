@@ -1,0 +1,16 @@
+{"time":"2024-12-09T08:33:01.863727922Z","level":"INFO","msg":"using version","core version":"0.19.0"}
+{"time":"2024-12-09T08:33:01.863792011Z","level":"INFO","msg":"created symlink","path":"/home/CATDF-Diffusion/script_run/wandb/run-20241209_083301-zayraa6x/logs/debug-core.log"}
+{"time":"2024-12-09T08:33:01.971142703Z","level":"INFO","msg":"created new stream","id":"zayraa6x"}
+{"time":"2024-12-09T08:33:01.971218549Z","level":"INFO","msg":"stream: started","id":"zayraa6x"}
+{"time":"2024-12-09T08:33:01.971317217Z","level":"INFO","msg":"writer: Do: started","stream_id":"zayraa6x"}
+{"time":"2024-12-09T08:33:01.971416447Z","level":"INFO","msg":"sender: started","stream_id":"zayraa6x"}
+{"time":"2024-12-09T08:33:01.971525126Z","level":"INFO","msg":"handler: started","stream_id":"zayraa6x"}
+{"time":"2024-12-09T08:33:02.281640353Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-09T08:33:10.830381892Z","level":"INFO","msg":"stream: closing","id":"zayraa6x"}
+{"time":"2024-12-09T08:33:10.830509761Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-12-09T08:33:10.831343579Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-12-09T08:33:11.42609884Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-12-09T08:33:11.598550052Z","level":"INFO","msg":"handler: closed","stream_id":"zayraa6x"}
+{"time":"2024-12-09T08:33:11.598581645Z","level":"INFO","msg":"writer: Close: closed","stream_id":"zayraa6x"}
+{"time":"2024-12-09T08:33:11.598615207Z","level":"INFO","msg":"sender: closed","stream_id":"zayraa6x"}
+{"time":"2024-12-09T08:33:11.598763197Z","level":"INFO","msg":"stream: closed","id":"zayraa6x"}

@@ -223,11 +223,11 @@ def main():
         embedding.save_embeddings_to_npz('cuda')
     
     unet, scheduler = model_trainable.run_load_model(is_data_embedding=False)
-    for name, param in unet.named_parameters():
-        if "attn1" in name:  
-            param.requires_grad = True  
-        else:
-            param.requires_grad = False  
+    # for name, param in unet.named_parameters():
+    #     if "attn1" in name:  
+    #         param.requires_grad = True  
+    #     else:
+    #         param.requires_grad = False  
 
     del model_trainable
     # print(scheduler.config.prediction_type)
@@ -258,6 +258,8 @@ def main():
         filename="model-{epoch:02d}-{train_loss:.4f}",
         save_top_k=5,
         mode="min",
+        every_n_epochs=199,  # Save every 5 epochs
+
     )
 
      # Learning rate monitoring
@@ -273,12 +275,14 @@ def main():
         log_every_n_steps=1,
         precision=16 if args.mixed_precision == "fp16" else 32,
         accumulate_grad_batches=args.gradient_accumulation_steps,
+        
     )
 
     # Train the model
     trainer.fit(
         model=lit_model,
-        train_dataloaders=train_dataloader
+        train_dataloaders=train_dataloader,
+        #  ckpt_path= r'/home/save_checkpoint/checkpoints/model-epoch=21-train_loss=0.0329.ckpt'
     )
 
     # Save final checkpoint
@@ -286,5 +290,6 @@ def main():
     trainer.save_checkpoint(final_checkpoint_path)
 
     print(f"Training complete")
+
 
 main()

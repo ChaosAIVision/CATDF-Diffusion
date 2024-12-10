@@ -7,3 +7,11 @@
 {"time":"2024-12-07T11:46:07.389393154Z","level":"INFO","msg":"sender: started","stream_id":"nrp0asuf"}
 {"time":"2024-12-07T11:46:07.666191256Z","level":"INFO","msg":"Starting system monitor"}
 {"time":"2024-12-07T13:27:38.22309515Z","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": read tcp 172.17.0.2:32942->35.186.228.49:443: read: connection reset by peer"}
+{"time":"2024-12-07T18:27:38.671567195Z","level":"INFO","msg":"stream: closing","id":"nrp0asuf"}
+{"time":"2024-12-07T18:27:38.671786364Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-12-07T18:27:38.673234199Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-12-07T18:27:39.666264119Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-12-07T18:27:39.972911812Z","level":"INFO","msg":"handler: closed","stream_id":"nrp0asuf"}
+{"time":"2024-12-07T18:27:39.973059781Z","level":"INFO","msg":"sender: closed","stream_id":"nrp0asuf"}
+{"time":"2024-12-07T18:27:39.973049055Z","level":"INFO","msg":"writer: Close: closed","stream_id":"nrp0asuf"}
+{"time":"2024-12-07T18:27:39.973488516Z","level":"INFO","msg":"stream: closed","id":"nrp0asuf"}

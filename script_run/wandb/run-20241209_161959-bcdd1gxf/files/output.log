@@ -1,0 +1,95 @@
+An error occurred while trying to fetch botp/stable-diffusion-v1-5-inpainting: botp/stable-diffusion-v1-5-inpainting does not appear to have a file named diffusion_pytorch_model.safetensors.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+You are using a model of type clip_text_model to instantiate a model of type . This is not supported for all configurations of models and can yield errors.
+Processing batches: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:02<00:00,  2.12s/it]
+An error occurred while trying to fetch /home/weight_pretrain/unet: Error no file named diffusion_pytorch_model.safetensors found in directory /home/weight_pretrain/unet.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/utilities/parsing.py:208: Attribute 'unet' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['unet'])`.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loggers/wandb.py:396: There is a wandb run already in progress and newly created instances of `WandbLogger` will reuse this run. If this is not desired, call `wandb.finish()` before instantiating `WandbLogger`.
+/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/callbacks/model_checkpoint.py:654: Checkpoint directory /home/save_checkpoint/checkpoints exists and is not empty.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:377: Found unsupported keys in the optimizer configuration: {'interval', 'scheduler'}
+
+  | Name | Type                 | Params | Mode
+-----------------------------------------------------
+0 | unet | UNet2DConditionModel | 859 M  | eval
+-----------------------------------------------------
+859 M     Trainable params
+0         Non-trainable params
+859 M     Total params
+3,438.141 Total estimated model params size (MB)
+32        Modules in train mode
+686       Modules in eval mode
+Epoch 0:   0%|                                                                                          | 0/1 [00:00<?, ?it/s]
+/home/CATDF-Diffusion/trainer.py:158: UserWarning: Using a target size (torch.Size([1, 4, 64, 64])) that is different to the input size (torch.Size([1, 4, 128, 64])). This will likely lead to incorrect results due to broadcasting. Please ensure they have the same size.
+  loss = F.mse_loss(model_pred.float(), target.float(), reduction="none")
+Traceback (most recent call last):
+  File "/home/CATDF-Diffusion/script_run/../train.py", line 295, in <module>
+    main()
+  File "/home/CATDF-Diffusion/script_run/../train.py", line 282, in main
+    trainer.fit(
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/trainer/trainer.py", line 538, in fit
+    call._call_and_handle_interrupt(
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/trainer/call.py", line 47, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/trainer/trainer.py", line 574, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/trainer/trainer.py", line 981, in _run
+    results = self._run_stage()
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/trainer/trainer.py", line 1025, in _run_stage
+    self.fit_loop.run()
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loops/fit_loop.py", line 205, in run
+    self.advance()
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loops/fit_loop.py", line 363, in advance
+    self.epoch_loop.run(self._data_fetcher)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loops/training_epoch_loop.py", line 140, in run
+    self.advance(data_fetcher)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loops/training_epoch_loop.py", line 250, in advance
+    batch_output = self.automatic_optimization.run(trainer.optimizers[0], batch_idx, kwargs)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py", line 190, in run
+    self._optimizer_step(batch_idx, closure)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py", line 268, in _optimizer_step
+    call._call_lightning_module_hook(
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/trainer/call.py", line 167, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/core/module.py", line 1306, in optimizer_step
+    optimizer.step(closure=optimizer_closure)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py", line 153, in step
+    step_output = self._strategy.optimizer_step(self._optimizer, closure, **kwargs)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/strategies/strategy.py", line 238, in optimizer_step
+    return self.precision_plugin.optimizer_step(optimizer, model=model, closure=closure, **kwargs)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/plugins/precision/precision.py", line 122, in optimizer_step
+    return optimizer.step(closure=closure, **kwargs)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/torch/optim/lr_scheduler.py", line 75, in wrapper
+    return wrapped(*args, **kwargs)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/torch/optim/optimizer.py", line 385, in wrapper
+    out = func(*args, **kwargs)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/torch/optim/optimizer.py", line 76, in _use_grad
+    ret = func(self, *args, **kwargs)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/torch/optim/adamw.py", line 164, in step
+    loss = closure()
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/plugins/precision/precision.py", line 108, in _wrap_closure
+    closure_result = closure()
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py", line 144, in __call__
+    self._result = self.closure(*args, **kwargs)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py", line 129, in closure
+    step_output = self._step_fn()
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py", line 317, in _training_step
+    training_step_output = call._call_strategy_hook(trainer, "training_step", *kwargs.values())
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/trainer/call.py", line 319, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/strategies/strategy.py", line 390, in training_step
+    return self.lightning_module.training_step(*args, **kwargs)
+  File "/home/CATDF-Diffusion/trainer.py", line 158, in training_step
+    loss = F.mse_loss(model_pred.float(), target.float(), reduction="none")
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/torch/nn/functional.py", line 3338, in mse_loss
+    expanded_input, expanded_target = torch.broadcast_tensors(input, target)
+  File "/opt/conda/envs/chaos/lib/python3.10/site-packages/torch/functional.py", line 76, in broadcast_tensors
+    return _VF.broadcast_tensors(tensors)  # type: ignore[attr-defined]
+RuntimeError: The size of tensor a (128) must match the size of tensor b (64) at non-singleton dimension 2

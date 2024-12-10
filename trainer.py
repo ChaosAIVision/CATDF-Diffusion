@@ -5,7 +5,7 @@ import torch.nn.functional as F
 from typing import Iterable, Optional, Any
 from torchmetrics import MeanMetric
 from copy import deepcopy
-from utils import get_dtype_training, log_data_make_loss_high 
+from utils import get_dtype_training, log_data_make_loss_high , compute_dream_and_update_latents_for_inpaint
 import os
 from models.unet import UNet2DConditionModel
 from models.attention import skip_encoder_hidden_state
@@ -119,6 +119,18 @@ class LitSDCATDF_v1(LightningModule):
   
         inpainting_latent_model_input = torch.cat([noisy_latents_target, mask_latent_concat, masked_latent_concat], dim=1)
 
+    # DREAM integration
+        noisy_latents_target, target = compute_dream_and_update_latents_for_inpaint(
+            unet=self.unet,
+            noise_scheduler=self.noise_scheduler,
+            timesteps=timesteps,
+            noise=noise,
+            noisy_latents=noisy_latents_target,
+            target=latent_target_concat,
+            encoder_hidden_states=None,
+            dream_detail_preservation=1.0,  # You can adjust this value
+        )
+
         # Forward computation
         model_pred = self(
             noisy_latent_input= inpainting_latent_model_input,
@@ -126,7 +138,8 @@ class LitSDCATDF_v1(LightningModule):
             encoder_hidden_states = None,
         )
 
-        # Remove padding of prediction to caculate loss         
+        # noise = noise.split(noise.shape[concat_dim] // 2, dim=concat_dim)[0]
+        # # Remove padding of prediction to caculate loss         
         # model_pred = model_pred.split(model_pred.shape[concat_dim] // 2, dim=concat_dim)[0]
 
         if self.noise_scheduler.config.prediction_type == "epsilon":
@@ -135,7 +148,7 @@ class LitSDCATDF_v1(LightningModule):
             target = self.noise_scheduler.get_velocity(latent_target_concat, noise, timesteps)
         elif self.noise_scheduler.config.prediction_type == "sample":
             # We set the target to latents here, but the model_pred will return the noise sample prediction.
-            target = latents_target
+            target = latent_target_concat
             # We will have to subtract the noise residual from the prediction to get the target sample.
             model_pred = model_pred - noise
         else:
@@ -157,7 +170,7 @@ class LitSDCATDF_v1(LightningModule):
         loss = F.mse_loss(model_pred.float(), target.float(), reduction="none")
         loss = loss.mean(dim=list(range(1, len(loss.shape)))) * mse_loss_weights
         loss = loss.mean()
-        loss_value = loss.item()
+        # loss_value = loss.item()
 
     #     log_data_make_loss_high(
     #     loss_value=loss_value,
@@ -180,7 +193,7 @@ class LitSDCATDF_v1(LightningModule):
             eps= self.args.adam_epsilon
             
         )
-        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer,T_max=100,eta_min=0
+        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer,T_max=200,eta_min=0
     )
         scheduler_optimizer_config ={
             'scheduler': scheduler,

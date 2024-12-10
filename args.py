@@ -137,7 +137,7 @@ def parse_args(input_args=None):
     parser.add_argument(
         "--learning_rate",
         type=float,
-        default=1e-4,
+        default=5e-5,
         help="Initial learning rate (after the potential warmup period) to use.",
     )
 

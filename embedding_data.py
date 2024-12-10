@@ -31,8 +31,8 @@ class EmbeddingData():
         metadata_records = [] 
         from itertools import islice
 
-        # for i, batch in tqdm(enumerate(islice(self.data_loader, 10)), total= 10, desc="Processing batches"): #test with data loader 1 items
-        for i, batch in tqdm(enumerate(self.data_loader), total=len(self.data_loader), desc="Processing batches"):
+        for i, batch in tqdm(enumerate(islice(self.data_loader, 1)), total= 1, desc="Processing batches"): #test with data loader 1 items
+        # for i, batch in tqdm(enumerate(self.data_loader), total=len(self.data_loader), desc="Processing batches"):
             #encoder latent and   
             latents_target = self.vae.encode(batch["latents_target"].to(dtype=self.weight_dtype,device = 'cuda')).latent_dist.sample()
             latents_target = latents_target * self.vae.config.scaling_factor
