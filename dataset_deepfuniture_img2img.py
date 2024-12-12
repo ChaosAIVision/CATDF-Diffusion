@@ -322,7 +322,7 @@ class Deepfurniture_Dataset_V1(Dataset):
         masked_image = self.get_masked_image_with_bbox(pixel_values, bboxes_annotation)
 
 
-        pixel_values = self.pad_image_to_target_size(pixel_values, (self.image_size, self.image_size // 2))
+        # pixel_values = self.pad_image_to_target_size(pixel_values, (self.image_size, self.image_size // 2))
 
         text = "make picture high quality and harmonization "
         return {
