@@ -12,6 +12,7 @@ from pathlib import Path
 import pandas as pd
 from utils import check_image_in_dataset
 from PIL import ImageOps
+from diffusers.image_processor import VaeImageProcessor
 
 
 def collate_fn_embedding(examples):
@@ -93,12 +94,14 @@ class Deepfurniture_Dataset_V1(Dataset):
             self.metadata = pd.read_parquet(metadata_file)
     
         self.image_size = image_size
-        self.image_transforms = transforms.Compose([
-            transforms.Resize((self.image_size, self.image_size), interpolation=transforms.InterpolationMode.BILINEAR),
-            transforms.CenterCrop(self.image_size),
-            transforms.ToTensor(),
-            transforms.Normalize([0.5], [0.5])
-        ])
+        # self.image_transforms = transforms.Compose([
+        #     transforms.Resize((self.image_size, self.image_size), interpolation=transforms.InterpolationMode.BILINEAR),
+        #     transforms.CenterCrop(self.image_size),
+        #     transforms.ToTensor(),
+        #     transforms.Normalize([0.5], [0.5])
+        # ])
+        self.image_transforms = VaeImageProcessor(vae_scale_factor=8) 
+        self.mask_transforms = VaeImageProcessor(vae_scale_factor=8, do_normalize=False, do_binarize=True, do_convert_grayscale=True) 
         self.dtype = get_dtype_training(dtype)
 
     def __len__(self):
@@ -326,10 +329,10 @@ class Deepfurniture_Dataset_V1(Dataset):
 
         text = "make picture high quality and harmonization "
         return {
-            "latents_target": self.image_transforms(pixel_values),
-            "latents_masked": self.image_transforms(masked_image),
-            "fill_pixel_values": self.image_transforms(identites),
-            "mask_pixel_values": self.image_transforms(mask_image),
+            "latents_target": self.image_transforms.preprocess(pixel_values, 64, 64)[0],
+            "latents_masked": self.image_transforms.preprocess(masked_image, 64, 64)[0],
+            "fill_pixel_values": self.image_transforms.preprocess(identites, 64, 64)[0],
+            "mask_pixel_values": self.mask_transforms.preprocess(mask_image,64,64)[0],
             "encoder_hidden_state": text
         }
     def load_saved_embeddings(self, idx):

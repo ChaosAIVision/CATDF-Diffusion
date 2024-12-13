@@ -3,7 +3,7 @@ from typing import List, Tuple
 from diffusers.models import AutoencoderKL
 from diffusers.pipelines.controlnet.multicontrolnet import MultiControlNetModel
 from diffusers.pipelines.stable_diffusion.safety_checker import StableDiffusionSafetyChecker
-from diffusers.schedulers import KarrasDiffusionSchedulers,DDPMScheduler
+from diffusers.schedulers import KarrasDiffusionSchedulers,DDIMScheduler
 from transformers import CLIPImageProcessor, CLIPTextModel, CLIPTokenizer,CLIPVisionModelWithProjection
 from diffusers.image_processor import PipelineImageInput, VaeImageProcessor
 from typing import Any, Callable, Dict, List, Optional, Tuple, Union
@@ -82,7 +82,7 @@ class StableDiffusionInpaintConCat(StableDiffusionInpaintPipeline):
                  text_encoder:CLIPTextModel,
                  tokenizer:CLIPTokenizer,
                  unet:UNet2DConditionModel,
-                 scheduler:DDPMScheduler,
+                 scheduler:DDIMScheduler,
                  safety_checker: StableDiffusionSafetyChecker,
                  feature_extractor:CLIPImageProcessor,
                  image_encoder = None,
@@ -172,7 +172,7 @@ class StableDiffusionInpaintConCat(StableDiffusionInpaintPipeline):
         num_inference_steps: int = 50,
         timesteps: List[int] = None,
         sigmas: List[float] = None,
-        guidance_scale: float = 4.5,
+        guidance_scale: float = 2.5,
         negative_prompt: Optional[Union[str, List[str]]] = None,
         num_images_per_prompt: Optional[int] = 1,
         eta: float = 0.0,

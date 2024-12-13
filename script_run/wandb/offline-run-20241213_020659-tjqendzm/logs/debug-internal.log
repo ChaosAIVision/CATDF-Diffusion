@@ -1,0 +1,8 @@
+{"time":"2024-12-13T02:06:59.221656245+07:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-12-13T02:06:59.22168262+07:00","level":"INFO","msg":"created symlink","path":"/mnt/Userdrive/tiennv/trang/chaos/trash/script_run/wandb/offline-run-20241213_020659-tjqendzm/logs/debug-core.log"}
+{"time":"2024-12-13T02:06:59.325999213+07:00","level":"INFO","msg":"created new stream","id":"tjqendzm"}
+{"time":"2024-12-13T02:06:59.326055995+07:00","level":"INFO","msg":"stream: started","id":"tjqendzm"}
+{"time":"2024-12-13T02:06:59.326143416+07:00","level":"INFO","msg":"writer: Do: started","stream_id":"tjqendzm"}
+{"time":"2024-12-13T02:06:59.326167486+07:00","level":"INFO","msg":"handler: started","stream_id":"tjqendzm"}
+{"time":"2024-12-13T02:06:59.326246108+07:00","level":"INFO","msg":"sender: started","stream_id":"tjqendzm"}
+{"time":"2024-12-13T02:06:59.339990353+07:00","level":"INFO","msg":"Starting system monitor"}

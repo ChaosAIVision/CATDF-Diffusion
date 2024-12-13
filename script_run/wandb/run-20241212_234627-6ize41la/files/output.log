@@ -1,0 +1,182 @@
+An error occurred while trying to fetch botp/stable-diffusion-v1-5-inpainting: botp/stable-diffusion-v1-5-inpainting does not appear to have a file named diffusion_pytorch_model.safetensors.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+You are using a model of type clip_text_model to instantiate a model of type . This is not supported for all configurations of models and can yield errors.
+Processing batches: 100%|███████████████████████████████████████████████████████████████████████████| 1/1 [00:02<00:00,  2.86s/it]
+An error occurred while trying to fetch /home/tiennv/trang/chaos/controlnext/weight_pretrain/unet_inpainting: Error no file named diffusion_pytorch_model.safetensors found in directory /home/tiennv/trang/chaos/controlnext/weight_pretrain/unet_inpainting.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/utilities/parsing.py:208: Attribute 'unet' is an instance of `nn.Module` and is already saved during checkpointing. It is recommended to ignore them using `self.save_hyperparameters(ignore=['unet'])`.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA GeForce RTX 3090') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loggers/wandb.py:396: There is a wandb run already in progress and newly created instances of `WandbLogger` will reuse this run. If this is not desired, call `wandb.finish()` before instantiating `WandbLogger`.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py:377: Found unsupported keys in the optimizer configuration: {'scheduler', 'interval'}
+
+  | Name | Type                 | Params | Mode
+-----------------------------------------------------
+0 | unet | UNet2DConditionModel | 859 M  | eval
+-----------------------------------------------------
+859 M     Trainable params
+0         Non-trainable params
+859 M     Total params
+3,438.141 Total estimated model params size (MB)
+32        Modules in train mode
+686       Modules in eval mode
+Epoch 0:   0%|                                                                                              | 0/1 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/mnt/Userdrive/tiennv/trang/chaos/trash/script_run/../train.py", line 295, in <module>
+    main()
+  File "/mnt/Userdrive/tiennv/trang/chaos/trash/script_run/../train.py", line 282, in main
+    trainer.fit(
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/trainer/trainer.py", line 538, in fit
+    call._call_and_handle_interrupt(
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/trainer/call.py", line 47, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/trainer/trainer.py", line 574, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/trainer/trainer.py", line 981, in _run
+    results = self._run_stage()
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/trainer/trainer.py", line 1025, in _run_stage
+    self.fit_loop.run()
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loops/fit_loop.py", line 205, in run
+    self.advance()
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loops/fit_loop.py", line 363, in advance
+    self.epoch_loop.run(self._data_fetcher)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loops/training_epoch_loop.py", line 140, in run
+    self.advance(data_fetcher)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loops/training_epoch_loop.py", line 250, in advance
+    batch_output = self.automatic_optimization.run(trainer.optimizers[0], batch_idx, kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py", line 190, in run
+    self._optimizer_step(batch_idx, closure)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py", line 268, in _optimizer_step
+    call._call_lightning_module_hook(
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/trainer/call.py", line 167, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/core/module.py", line 1306, in optimizer_step
+    optimizer.step(closure=optimizer_closure)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py", line 153, in step
+    step_output = self._strategy.optimizer_step(self._optimizer, closure, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/strategies/strategy.py", line 238, in optimizer_step
+    return self.precision_plugin.optimizer_step(optimizer, model=model, closure=closure, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/plugins/precision/precision.py", line 122, in optimizer_step
+    return optimizer.step(closure=closure, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/torch/optim/lr_scheduler.py", line 75, in wrapper
+    return wrapped(*args, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/torch/optim/optimizer.py", line 391, in wrapper
+    out = func(*args, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/torch/optim/optimizer.py", line 76, in _use_grad
+    ret = func(self, *args, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/torch/optim/adamw.py", line 165, in step
+    loss = closure()
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/plugins/precision/precision.py", line 108, in _wrap_closure
+    closure_result = closure()
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py", line 144, in __call__
+    self._result = self.closure(*args, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py", line 129, in closure
+    step_output = self._step_fn()
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py", line 317, in _training_step
+    training_step_output = call._call_strategy_hook(trainer, "training_step", *kwargs.values())
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/trainer/call.py", line 319, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/strategies/strategy.py", line 390, in training_step
+    return self.lightning_module.training_step(*args, **kwargs)
+  File "/mnt/Userdrive/tiennv/trang/chaos/trash/trainer.py", line 123, in training_step
+    inpainting_latent_model_input, latents_target = compute_dream_and_update_latents_for_inpaint(
+  File "/mnt/Userdrive/tiennv/trang/chaos/trash/utils.py", line 181, in compute_dream_and_update_latents_for_inpaint
+    pred = unet(noisy_latents, timesteps, encoder_hidden_states).sample
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/diffusers/models/unets/unet_2d_condition.py", line 1169, in forward
+    sample = self.conv_in(sample)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 460, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 456, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+RuntimeError: Given groups=1, weight of size [320, 9, 3, 3], expected input[1, 4, 128, 64] to have 9 channels, but got 4 channels instead
+Traceback (most recent call last):
+  File "/mnt/Userdrive/tiennv/trang/chaos/trash/script_run/../train.py", line 295, in <module>
+    main()
+  File "/mnt/Userdrive/tiennv/trang/chaos/trash/script_run/../train.py", line 282, in main
+    trainer.fit(
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/trainer/trainer.py", line 538, in fit
+    call._call_and_handle_interrupt(
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/trainer/call.py", line 47, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/trainer/trainer.py", line 574, in _fit_impl
+    self._run(model, ckpt_path=ckpt_path)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/trainer/trainer.py", line 981, in _run
+    results = self._run_stage()
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/trainer/trainer.py", line 1025, in _run_stage
+    self.fit_loop.run()
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loops/fit_loop.py", line 205, in run
+    self.advance()
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loops/fit_loop.py", line 363, in advance
+    self.epoch_loop.run(self._data_fetcher)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loops/training_epoch_loop.py", line 140, in run
+    self.advance(data_fetcher)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loops/training_epoch_loop.py", line 250, in advance
+    batch_output = self.automatic_optimization.run(trainer.optimizers[0], batch_idx, kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py", line 190, in run
+    self._optimizer_step(batch_idx, closure)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py", line 268, in _optimizer_step
+    call._call_lightning_module_hook(
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/trainer/call.py", line 167, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/core/module.py", line 1306, in optimizer_step
+    optimizer.step(closure=optimizer_closure)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/core/optimizer.py", line 153, in step
+    step_output = self._strategy.optimizer_step(self._optimizer, closure, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/strategies/strategy.py", line 238, in optimizer_step
+    return self.precision_plugin.optimizer_step(optimizer, model=model, closure=closure, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/plugins/precision/precision.py", line 122, in optimizer_step
+    return optimizer.step(closure=closure, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/torch/optim/lr_scheduler.py", line 75, in wrapper
+    return wrapped(*args, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/torch/optim/optimizer.py", line 391, in wrapper
+    out = func(*args, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/torch/optim/optimizer.py", line 76, in _use_grad
+    ret = func(self, *args, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/torch/optim/adamw.py", line 165, in step
+    loss = closure()
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/plugins/precision/precision.py", line 108, in _wrap_closure
+    closure_result = closure()
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py", line 144, in __call__
+    self._result = self.closure(*args, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py", line 129, in closure
+    step_output = self._step_fn()
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/loops/optimization/automatic.py", line 317, in _training_step
+    training_step_output = call._call_strategy_hook(trainer, "training_step", *kwargs.values())
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/trainer/call.py", line 319, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/lightning/pytorch/strategies/strategy.py", line 390, in training_step
+    return self.lightning_module.training_step(*args, **kwargs)
+  File "/mnt/Userdrive/tiennv/trang/chaos/trash/trainer.py", line 123, in training_step
+    inpainting_latent_model_input, latents_target = compute_dream_and_update_latents_for_inpaint(
+  File "/mnt/Userdrive/tiennv/trang/chaos/trash/utils.py", line 181, in compute_dream_and_update_latents_for_inpaint
+    pred = unet(noisy_latents, timesteps, encoder_hidden_states).sample
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/diffusers/models/unets/unet_2d_condition.py", line 1169, in forward
+    sample = self.conv_in(sample)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 460, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/torch/nn/modules/conv.py", line 456, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+RuntimeError: Given groups=1, weight of size [320, 9, 3, 3], expected input[1, 4, 128, 64] to have 9 channels, but got 4 channels instead

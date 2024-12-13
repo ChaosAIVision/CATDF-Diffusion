@@ -1,0 +1,87 @@
+An error occurred while trying to fetch botp/stable-diffusion-v1-5-inpainting: botp/stable-diffusion-v1-5-inpainting does not appear to have a file named diffusion_pytorch_model.safetensors.
+Defaulting to unsafe serialization. Pass `allow_pickle=False` to raise an error instead.
+You are using a model of type clip_text_model to instantiate a model of type . This is not supported for all configurations of models and can yield errors.
+Traceback (most recent call last):
+  File "/mnt/Userdrive/tiennv/trang/chaos/trash/script_run/../train.py", line 295, in <module>
+    main()
+  File "/mnt/Userdrive/tiennv/trang/chaos/trash/script_run/../train.py", line 214, in main
+    vae, tokenizer, text_encoder = model_trainable.run_load_model(is_data_embedding=True)
+  File "/mnt/Userdrive/tiennv/trang/chaos/trash/script_run/../train.py", line 138, in run_load_model
+    self.init_text_encoder()
+  File "/mnt/Userdrive/tiennv/trang/chaos/trash/script_run/../train.py", line 123, in init_text_encoder
+    self.text_encoder = CLIPTextModel.from_pretrained(
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/transformers/modeling_utils.py", line 3670, in from_pretrained
+    if not has_file(pretrained_model_name_or_path, safe_weights_name, **has_file_kwargs):
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/transformers/utils/hub.py", line 658, in has_file
+    response = get_session().head(
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/requests/sessions.py", line 624, in head
+    return self.request("HEAD", url, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/huggingface_hub/utils/_http.py", line 93, in send
+    return super().send(request, *args, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/urllib3/connection.py", line 507, in getresponse
+    httplib_response = super().getresponse()
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/http/client.py", line 1368, in getresponse
+    response.begin()
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/http/client.py", line 317, in begin
+    version, status, reason = self._read_status()
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/http/client.py", line 278, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/ssl.py", line 1273, in recv_into
+    return self.read(nbytes, buffer)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/ssl.py", line 1129, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/mnt/Userdrive/tiennv/trang/chaos/trash/script_run/../train.py", line 295, in <module>
+    main()
+  File "/mnt/Userdrive/tiennv/trang/chaos/trash/script_run/../train.py", line 214, in main
+    vae, tokenizer, text_encoder = model_trainable.run_load_model(is_data_embedding=True)
+  File "/mnt/Userdrive/tiennv/trang/chaos/trash/script_run/../train.py", line 138, in run_load_model
+    self.init_text_encoder()
+  File "/mnt/Userdrive/tiennv/trang/chaos/trash/script_run/../train.py", line 123, in init_text_encoder
+    self.text_encoder = CLIPTextModel.from_pretrained(
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/transformers/modeling_utils.py", line 3670, in from_pretrained
+    if not has_file(pretrained_model_name_or_path, safe_weights_name, **has_file_kwargs):
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/transformers/utils/hub.py", line 658, in has_file
+    response = get_session().head(
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/requests/sessions.py", line 624, in head
+    return self.request("HEAD", url, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/huggingface_hub/utils/_http.py", line 93, in send
+    return super().send(request, *args, **kwargs)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/site-packages/urllib3/connection.py", line 507, in getresponse
+    httplib_response = super().getresponse()
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/http/client.py", line 1368, in getresponse
+    response.begin()
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/http/client.py", line 317, in begin
+    version, status, reason = self._read_status()
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/http/client.py", line 278, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/ssl.py", line 1273, in recv_into
+    return self.read(nbytes, buffer)
+  File "/home/tiennv/.conda/envs/chaos/lib/python3.10/ssl.py", line 1129, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt

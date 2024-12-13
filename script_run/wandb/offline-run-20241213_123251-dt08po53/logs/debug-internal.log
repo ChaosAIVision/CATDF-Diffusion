@@ -1,0 +1,15 @@
+{"time":"2024-12-13T12:32:51.188240126+07:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-12-13T12:32:51.188250502+07:00","level":"INFO","msg":"created symlink","path":"/mnt/Userdrive/tiennv/trang/chaos/trash/script_run/wandb/offline-run-20241213_123251-dt08po53/logs/debug-core.log"}
+{"time":"2024-12-13T12:32:51.291562287+07:00","level":"INFO","msg":"created new stream","id":"dt08po53"}
+{"time":"2024-12-13T12:32:51.291625182+07:00","level":"INFO","msg":"stream: started","id":"dt08po53"}
+{"time":"2024-12-13T12:32:51.291728989+07:00","level":"INFO","msg":"writer: Do: started","stream_id":"dt08po53"}
+{"time":"2024-12-13T12:32:51.291773327+07:00","level":"INFO","msg":"handler: started","stream_id":"dt08po53"}
+{"time":"2024-12-13T12:32:51.291843432+07:00","level":"INFO","msg":"sender: started","stream_id":"dt08po53"}
+{"time":"2024-12-13T12:32:51.315029931+07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-13T12:51:35.101490474+07:00","level":"INFO","msg":"stream: closing","id":"dt08po53"}
+{"time":"2024-12-13T12:51:35.10151971+07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-12-13T12:51:35.101949188+07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-12-13T12:51:35.102050878+07:00","level":"INFO","msg":"handler: closed","stream_id":"dt08po53"}
+{"time":"2024-12-13T12:51:35.102057802+07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"dt08po53"}
+{"time":"2024-12-13T12:51:35.102084692+07:00","level":"INFO","msg":"sender: closed","stream_id":"dt08po53"}
+{"time":"2024-12-13T12:51:35.102101614+07:00","level":"INFO","msg":"stream: closed","id":"dt08po53"}

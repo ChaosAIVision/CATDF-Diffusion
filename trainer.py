@@ -74,7 +74,6 @@ class LitSDCATDF_v1(LightningModule):
             encoder_hidden_states=encoder_hidden_states,
             return_dict=False
         )[0]
-
         return model_pred
     
     def training_step(self, batch, batch_idx):
@@ -125,7 +124,7 @@ class LitSDCATDF_v1(LightningModule):
             noise_scheduler=self.noise_scheduler,
             timesteps=timesteps,
             noise=noise,
-            noisy_latents=noisy_latents_target,
+            noisy_latents=inpainting_latent_model_input,
             target=latent_target_concat,
             encoder_hidden_states=None,
             dream_detail_preservation=1.0,  # You can adjust this value
@@ -136,23 +135,24 @@ class LitSDCATDF_v1(LightningModule):
             noisy_latent_input= inpainting_latent_model_input,
             time_steps= timesteps,
             encoder_hidden_states = None,
-        )
+        ) 
 
-        noise = noise.split(noise.shape[concat_dim] // 2, dim=concat_dim)[0]
+        # noise = noise.split(noise.shape[concat_dim] // 2, dim=concat_dim)[0]
         # Remove padding of prediction to caculate loss         
-        model_pred = model_pred.split(model_pred.shape[concat_dim] // 2, dim=concat_dim)[0]
+        # model_pred = model_pred.split(model_pred.shape[concat_dim] // 2, dim=concat_dim)[0]
 
         if self.noise_scheduler.config.prediction_type == "epsilon":
             target = noise
         elif self.noise_scheduler.config.prediction_type == "v_prediction":
-            target = self.noise_scheduler.get_velocity(latents_target, noise, timesteps)
+            target = self.noise_scheduler.get_velocity(latent_target_concat, noise, timesteps)
         elif self.noise_scheduler.config.prediction_type == "sample":
             # We set the target to latents here, but the model_pred will return the noise sample prediction.
-            target = latents_target
+            target = latent_target_concat
             # We will have to subtract the noise residual from the prediction to get the target sample.
             model_pred = model_pred - noise
         else:
             raise ValueError(f"Unknown prediction type {self.noise_scheduler.config.prediction_type}")
+  
 
      
         # Compute loss-weights as per Section 3.4 of https://arxiv.org/abs/2303.09556.
@@ -170,7 +170,7 @@ class LitSDCATDF_v1(LightningModule):
         loss = F.mse_loss(model_pred.float(), target.float(), reduction="none")
         loss = loss.mean(dim=list(range(1, len(loss.shape)))) * mse_loss_weights
         loss = loss.mean()
-        # loss_value = loss.item()
+        loss_value = loss.item()
 
     #     log_data_make_loss_high(
     #     loss_value=loss_value,

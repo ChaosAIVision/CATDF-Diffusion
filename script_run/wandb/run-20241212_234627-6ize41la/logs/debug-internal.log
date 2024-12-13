@@ -1,0 +1,16 @@
+{"time":"2024-12-12T23:46:27.709937158+07:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-12-12T23:46:27.709944778+07:00","level":"INFO","msg":"created symlink","path":"/mnt/Userdrive/tiennv/trang/chaos/trash/script_run/wandb/run-20241212_234627-6ize41la/logs/debug-core.log"}
+{"time":"2024-12-12T23:46:27.912441815+07:00","level":"INFO","msg":"created new stream","id":"6ize41la"}
+{"time":"2024-12-12T23:46:27.912457882+07:00","level":"INFO","msg":"stream: started","id":"6ize41la"}
+{"time":"2024-12-12T23:46:27.912464881+07:00","level":"INFO","msg":"writer: Do: started","stream_id":"6ize41la"}
+{"time":"2024-12-12T23:46:27.912507934+07:00","level":"INFO","msg":"handler: started","stream_id":"6ize41la"}
+{"time":"2024-12-12T23:46:27.912510763+07:00","level":"INFO","msg":"sender: started","stream_id":"6ize41la"}
+{"time":"2024-12-12T23:46:28.49771753+07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-12T23:46:45.46586731+07:00","level":"INFO","msg":"stream: closing","id":"6ize41la"}
+{"time":"2024-12-12T23:46:45.465882369+07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-12-12T23:46:45.466179323+07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-12-12T23:46:49.434482142+07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-12-12T23:46:49.932240468+07:00","level":"INFO","msg":"handler: closed","stream_id":"6ize41la"}
+{"time":"2024-12-12T23:46:49.932276664+07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"6ize41la"}
+{"time":"2024-12-12T23:46:49.932284774+07:00","level":"INFO","msg":"sender: closed","stream_id":"6ize41la"}
+{"time":"2024-12-12T23:46:49.932301011+07:00","level":"INFO","msg":"stream: closed","id":"6ize41la"}

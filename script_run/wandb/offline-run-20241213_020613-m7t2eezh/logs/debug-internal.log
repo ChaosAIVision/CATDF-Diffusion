@@ -1,0 +1,15 @@
+{"time":"2024-12-13T02:06:13.398845647+07:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-12-13T02:06:13.398854315+07:00","level":"INFO","msg":"created symlink","path":"/mnt/Userdrive/tiennv/trang/chaos/trash/script_run/wandb/offline-run-20241213_020613-m7t2eezh/logs/debug-core.log"}
+{"time":"2024-12-13T02:06:13.50222128+07:00","level":"INFO","msg":"created new stream","id":"m7t2eezh"}
+{"time":"2024-12-13T02:06:13.502278422+07:00","level":"INFO","msg":"stream: started","id":"m7t2eezh"}
+{"time":"2024-12-13T02:06:13.50237412+07:00","level":"INFO","msg":"writer: Do: started","stream_id":"m7t2eezh"}
+{"time":"2024-12-13T02:06:13.502481977+07:00","level":"INFO","msg":"sender: started","stream_id":"m7t2eezh"}
+{"time":"2024-12-13T02:06:13.502452285+07:00","level":"INFO","msg":"handler: started","stream_id":"m7t2eezh"}
+{"time":"2024-12-13T02:06:13.523540106+07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-13T02:06:26.262527304+07:00","level":"INFO","msg":"stream: closing","id":"m7t2eezh"}
+{"time":"2024-12-13T02:06:26.262565963+07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-12-13T02:06:26.262902784+07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-12-13T02:06:26.263027688+07:00","level":"INFO","msg":"handler: closed","stream_id":"m7t2eezh"}
+{"time":"2024-12-13T02:06:26.263034975+07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"m7t2eezh"}
+{"time":"2024-12-13T02:06:26.263055596+07:00","level":"INFO","msg":"sender: closed","stream_id":"m7t2eezh"}
+{"time":"2024-12-13T02:06:26.263066651+07:00","level":"INFO","msg":"stream: closed","id":"m7t2eezh"}

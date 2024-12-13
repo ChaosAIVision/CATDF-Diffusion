@@ -1,0 +1,14 @@
+{"time":"2024-12-13T12:31:06.603727564+07:00","level":"INFO","msg":"started logging, with flags","port-filename":"/tmp/tmp2trzr53i/port-2911520.txt","pid":2911520,"debug":false,"disable-analytics":false}
+{"time":"2024-12-13T12:31:06.603743111+07:00","level":"INFO","msg":"FeatureState","shutdownOnParentExitEnabled":false}
+{"time":"2024-12-13T12:31:06.60387404+07:00","level":"INFO","msg":"server is running","addr":{"IP":"127.0.0.1","Port":33379,"Zone":""}}
+{"time":"2024-12-13T12:31:06.603904192+07:00","level":"INFO","msg":"Will exit if parent process dies.","ppid":2911520}
+{"time":"2024-12-13T12:31:06.802286182+07:00","level":"INFO","msg":"connection: ManageConnectionData: new connection created","id":"127.0.0.1:37454"}
+{"time":"2024-12-13T12:31:06.811858423+07:00","level":"INFO","msg":"handleInformInit: received","streamId":"kkwss6y8","id":"127.0.0.1:37454"}
+{"time":"2024-12-13T12:31:06.915653066+07:00","level":"INFO","msg":"handleInformInit: stream started","streamId":"kkwss6y8","id":"127.0.0.1:37454"}
+{"time":"2024-12-13T12:31:20.327312778+07:00","level":"INFO","msg":"handleInformTeardown: server teardown initiated","id":"127.0.0.1:37454"}
+{"time":"2024-12-13T12:31:20.327346818+07:00","level":"INFO","msg":"server is shutting down"}
+{"time":"2024-12-13T12:31:20.327341167+07:00","level":"INFO","msg":"connection: Close: initiating connection closure","id":"127.0.0.1:37454"}
+{"time":"2024-12-13T12:31:20.327384077+07:00","level":"INFO","msg":"connection: Close: connection successfully closed","id":"127.0.0.1:37454"}
+{"time":"2024-12-13T12:31:20.32786499+07:00","level":"INFO","msg":"handleInformTeardown: server shutdown complete","id":"127.0.0.1:37454"}
+{"time":"2024-12-13T12:31:20.327872355+07:00","level":"INFO","msg":"connection: ManageConnectionData: connection closed","id":"127.0.0.1:37454"}
+{"time":"2024-12-13T12:31:20.327876396+07:00","level":"INFO","msg":"server is closed"}

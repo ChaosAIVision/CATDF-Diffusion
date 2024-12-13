@@ -1,0 +1,11 @@
+{"time":"2024-12-13T00:50:39.290312922+07:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-12-13T00:50:39.290320818+07:00","level":"INFO","msg":"created symlink","path":"/mnt/Userdrive/tiennv/trang/chaos/trash/script_run/wandb/run-20241213_005039-l8czz2fk/logs/debug-core.log"}
+{"time":"2024-12-13T00:50:39.392249612+07:00","level":"INFO","msg":"created new stream","id":"l8czz2fk"}
+{"time":"2024-12-13T00:50:39.39226508+07:00","level":"INFO","msg":"stream: started","id":"l8czz2fk"}
+{"time":"2024-12-13T00:50:39.392307914+07:00","level":"INFO","msg":"writer: Do: started","stream_id":"l8czz2fk"}
+{"time":"2024-12-13T00:50:39.392345082+07:00","level":"INFO","msg":"sender: started","stream_id":"l8czz2fk"}
+{"time":"2024-12-13T00:50:39.392367924+07:00","level":"INFO","msg":"handler: started","stream_id":"l8czz2fk"}
+{"time":"2024-12-13T00:50:39.807510271+07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-13T00:50:43.376921638+07:00","level":"INFO","msg":"stream: closing","id":"l8czz2fk"}
+{"time":"2024-12-13T00:50:43.376936059+07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-12-13T00:50:43.377217838+07:00","level":"INFO","msg":"Stopped system monitor"}

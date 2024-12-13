@@ -1,0 +1,15 @@
+{"time":"2024-12-13T11:29:09.022234733+07:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-12-13T11:29:09.022247249+07:00","level":"INFO","msg":"created symlink","path":"/mnt/Userdrive/tiennv/trang/chaos/trash/script_run/wandb/offline-run-20241213_112908-t2amd1zi/logs/debug-core.log"}
+{"time":"2024-12-13T11:29:09.124487143+07:00","level":"INFO","msg":"created new stream","id":"t2amd1zi"}
+{"time":"2024-12-13T11:29:09.124505759+07:00","level":"INFO","msg":"stream: started","id":"t2amd1zi"}
+{"time":"2024-12-13T11:29:09.124578969+07:00","level":"INFO","msg":"handler: started","stream_id":"t2amd1zi"}
+{"time":"2024-12-13T11:29:09.128649705+07:00","level":"INFO","msg":"sender: started","stream_id":"t2amd1zi"}
+{"time":"2024-12-13T11:29:09.128650346+07:00","level":"INFO","msg":"writer: Do: started","stream_id":"t2amd1zi"}
+{"time":"2024-12-13T11:29:09.135220256+07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-13T11:29:27.382278486+07:00","level":"INFO","msg":"stream: closing","id":"t2amd1zi"}
+{"time":"2024-12-13T11:29:27.382303455+07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-12-13T11:29:27.382640469+07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-12-13T11:29:27.382715917+07:00","level":"INFO","msg":"handler: closed","stream_id":"t2amd1zi"}
+{"time":"2024-12-13T11:29:27.382720581+07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"t2amd1zi"}
+{"time":"2024-12-13T11:29:27.382753713+07:00","level":"INFO","msg":"sender: closed","stream_id":"t2amd1zi"}
+{"time":"2024-12-13T11:29:27.382759859+07:00","level":"INFO","msg":"stream: closed","id":"t2amd1zi"}

@@ -1,0 +1,15 @@
+{"time":"2024-12-13T12:13:50.958415234+07:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-12-13T12:13:50.958425018+07:00","level":"INFO","msg":"created symlink","path":"/mnt/Userdrive/tiennv/trang/chaos/trash/script_run/wandb/offline-run-20241213_121350-oibmg148/logs/debug-core.log"}
+{"time":"2024-12-13T12:13:51.06217354+07:00","level":"INFO","msg":"created new stream","id":"oibmg148"}
+{"time":"2024-12-13T12:13:51.063861201+07:00","level":"INFO","msg":"stream: started","id":"oibmg148"}
+{"time":"2024-12-13T12:13:51.064179337+07:00","level":"INFO","msg":"handler: started","stream_id":"oibmg148"}
+{"time":"2024-12-13T12:13:51.064194352+07:00","level":"INFO","msg":"writer: Do: started","stream_id":"oibmg148"}
+{"time":"2024-12-13T12:13:51.064158105+07:00","level":"INFO","msg":"sender: started","stream_id":"oibmg148"}
+{"time":"2024-12-13T12:13:51.090121355+07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-13T12:23:00.080176222+07:00","level":"INFO","msg":"stream: closing","id":"oibmg148"}
+{"time":"2024-12-13T12:23:00.080199978+07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-12-13T12:23:00.080502128+07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-12-13T12:23:00.080603+07:00","level":"INFO","msg":"handler: closed","stream_id":"oibmg148"}
+{"time":"2024-12-13T12:23:00.080608351+07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"oibmg148"}
+{"time":"2024-12-13T12:23:00.080629774+07:00","level":"INFO","msg":"sender: closed","stream_id":"oibmg148"}
+{"time":"2024-12-13T12:23:00.080641308+07:00","level":"INFO","msg":"stream: closed","id":"oibmg148"}

@@ -1,0 +1,15 @@
+{"time":"2024-12-13T00:51:09.732817853+07:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-12-13T00:51:09.732829139+07:00","level":"INFO","msg":"created symlink","path":"/mnt/Userdrive/tiennv/trang/chaos/trash/script_run/wandb/offline-run-20241213_005109-uban5slk/logs/debug-core.log"}
+{"time":"2024-12-13T00:51:09.833812104+07:00","level":"INFO","msg":"created new stream","id":"uban5slk"}
+{"time":"2024-12-13T00:51:09.833826285+07:00","level":"INFO","msg":"stream: started","id":"uban5slk"}
+{"time":"2024-12-13T00:51:09.8338649+07:00","level":"INFO","msg":"writer: Do: started","stream_id":"uban5slk"}
+{"time":"2024-12-13T00:51:09.833868306+07:00","level":"INFO","msg":"handler: started","stream_id":"uban5slk"}
+{"time":"2024-12-13T00:51:09.833880393+07:00","level":"INFO","msg":"sender: started","stream_id":"uban5slk"}
+{"time":"2024-12-13T00:51:09.838264916+07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-13T01:09:15.489351043+07:00","level":"INFO","msg":"stream: closing","id":"uban5slk"}
+{"time":"2024-12-13T01:09:15.48938613+07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-12-13T01:09:15.48976016+07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-12-13T01:09:15.48987831+07:00","level":"INFO","msg":"handler: closed","stream_id":"uban5slk"}
+{"time":"2024-12-13T01:09:15.489886512+07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"uban5slk"}
+{"time":"2024-12-13T01:09:15.489918263+07:00","level":"INFO","msg":"sender: closed","stream_id":"uban5slk"}
+{"time":"2024-12-13T01:09:15.489930396+07:00","level":"INFO","msg":"stream: closed","id":"uban5slk"}

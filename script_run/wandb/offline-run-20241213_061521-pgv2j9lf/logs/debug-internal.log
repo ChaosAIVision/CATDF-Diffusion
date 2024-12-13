@@ -1,0 +1,15 @@
+{"time":"2024-12-13T06:15:21.916831465+07:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-12-13T06:15:21.916839624+07:00","level":"INFO","msg":"created symlink","path":"/mnt/Userdrive/tiennv/trang/chaos/trash/script_run/wandb/offline-run-20241213_061521-pgv2j9lf/logs/debug-core.log"}
+{"time":"2024-12-13T06:15:22.019371647+07:00","level":"INFO","msg":"created new stream","id":"pgv2j9lf"}
+{"time":"2024-12-13T06:15:22.0193853+07:00","level":"INFO","msg":"stream: started","id":"pgv2j9lf"}
+{"time":"2024-12-13T06:15:22.019390963+07:00","level":"INFO","msg":"writer: Do: started","stream_id":"pgv2j9lf"}
+{"time":"2024-12-13T06:15:22.019429168+07:00","level":"INFO","msg":"sender: started","stream_id":"pgv2j9lf"}
+{"time":"2024-12-13T06:15:22.019440282+07:00","level":"INFO","msg":"handler: started","stream_id":"pgv2j9lf"}
+{"time":"2024-12-13T06:15:22.023733865+07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-13T06:34:03.528077741+07:00","level":"INFO","msg":"stream: closing","id":"pgv2j9lf"}
+{"time":"2024-12-13T06:34:03.528149285+07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-12-13T06:34:03.534055681+07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-12-13T06:34:03.534175977+07:00","level":"INFO","msg":"handler: closed","stream_id":"pgv2j9lf"}
+{"time":"2024-12-13T06:34:03.534184115+07:00","level":"INFO","msg":"sender: closed","stream_id":"pgv2j9lf"}
+{"time":"2024-12-13T06:34:03.534181902+07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"pgv2j9lf"}
+{"time":"2024-12-13T06:34:03.53422086+07:00","level":"INFO","msg":"stream: closed","id":"pgv2j9lf"}

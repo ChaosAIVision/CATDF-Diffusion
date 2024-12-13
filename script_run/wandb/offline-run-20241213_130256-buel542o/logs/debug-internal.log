@@ -1,0 +1,15 @@
+{"time":"2024-12-13T13:02:56.356253884+07:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-12-13T13:02:56.356262272+07:00","level":"INFO","msg":"created symlink","path":"/mnt/Userdrive/tiennv/trang/chaos/trash/script_run/wandb/offline-run-20241213_130256-buel542o/logs/debug-core.log"}
+{"time":"2024-12-13T13:02:56.459402794+07:00","level":"INFO","msg":"created new stream","id":"buel542o"}
+{"time":"2024-12-13T13:02:56.459458742+07:00","level":"INFO","msg":"stream: started","id":"buel542o"}
+{"time":"2024-12-13T13:02:56.459566756+07:00","level":"INFO","msg":"writer: Do: started","stream_id":"buel542o"}
+{"time":"2024-12-13T13:02:56.459621459+07:00","level":"INFO","msg":"handler: started","stream_id":"buel542o"}
+{"time":"2024-12-13T13:02:56.459699271+07:00","level":"INFO","msg":"sender: started","stream_id":"buel542o"}
+{"time":"2024-12-13T13:02:56.464767157+07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-13T13:22:06.97076266+07:00","level":"INFO","msg":"stream: closing","id":"buel542o"}
+{"time":"2024-12-13T13:22:06.970795899+07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-12-13T13:22:06.971141147+07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-12-13T13:22:06.971225677+07:00","level":"INFO","msg":"handler: closed","stream_id":"buel542o"}
+{"time":"2024-12-13T13:22:06.971230964+07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"buel542o"}
+{"time":"2024-12-13T13:22:06.971239536+07:00","level":"INFO","msg":"sender: closed","stream_id":"buel542o"}
+{"time":"2024-12-13T13:22:06.971257162+07:00","level":"INFO","msg":"stream: closed","id":"buel542o"}

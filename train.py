@@ -29,7 +29,7 @@ from transformers import AutoTokenizer, PretrainedConfig
 
 from diffusers import (
     AutoencoderKL,
-    DDPMScheduler,)
+    DDPMScheduler,DDIMScheduler)
 
 from diffusers.optimization import get_scheduler
 from diffusers.utils import check_min_version, is_wandb_available
@@ -102,7 +102,7 @@ class ModelTrainManager:
 
     def init_noise_scheduler(self):
         try:
-            self.noise_scheduler = DDPMScheduler.from_pretrained(
+            self.noise_scheduler = DDIMScheduler.from_pretrained(
                 self.args.pretrained_model_name_or_path, subfolder="scheduler", prediction_type = self.args.prediction_type
             )
             logger.info("Successfully initialized noise scheduler")
@@ -223,11 +223,11 @@ def main():
         embedding.save_embeddings_to_npz('cuda')
     
     unet, scheduler = model_trainable.run_load_model(is_data_embedding=False)
-    # for name, param in unet.named_parameters():
-    #     if "attn1" in name:  
-    #         param.requires_grad = True  
-    #     else:
-    #         param.requires_grad = False  
+    for name, param in unet.named_parameters():
+        if "attn1" in name:  
+            param.requires_grad = True  
+        else:
+            param.requires_grad = False  
 
     del model_trainable
     # print(scheduler.config.prediction_type)
@@ -282,7 +282,7 @@ def main():
     trainer.fit(
         model=lit_model,
         train_dataloaders=train_dataloader,
-        #  ckpt_path= r'/home/save_checkpoint/checkpoints/model-epoch=21-train_loss=0.0329.ckpt'
+    #      ckpt_path= r'/home/tiennv/trang/chaos/trash/output/checkpoints/model-epoch=994-train_loss=0.0421.ckpt'
     )
 
     # Save final checkpoint

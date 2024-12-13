@@ -1,26 +1,18 @@
+from lightning.pytorch import Trainer
+from trainer import LitSDCATDF_v1  # Thay bằng lớp LightningModule thực tế của bạn
+
+# Đường dẫn đến checkpoint
+checkpoint_path = "/home/tiennv/trang/chaos/trash/output/checkpoints/model-epoch=994-train_loss=0.0000.ckpt"
+model = LitSDCATDF_v1.load_from_checkpoint(checkpoint_path, map_location="cpu")
+# Truy cập unet
+unet = model.unet
 import torch
-import os
-os.environ["CUDA_VISIBLE_DEVICES"] = "1"
+# # In thông tin cấu hình hoặc các tham số của unet
+# print("UNet Config:", unet.config)  # Nếu unet có thuộc tính config
+# print("UNet State Dict Keys:", unet.state_dict().keys())
 
-statedict = torch.load('/home/tiennv/trang/chaos/controlnext/weight_training/checkpoints/epoch-epoch=189.ckpt')
-# print(statedict['state_dict'].keys())
-model_state_dict = statedict['state_dict']
-
-prefix_controlnext = 'controlnext.'
-prefix_unet = 'unet.'
-
-unet_weights = {}
-controlnext_weights = {}
-
-for key, value in model_state_dict.items():
-    if key.startswith(prefix_controlnext):
-        new_key = key[len(prefix_controlnext):]
-        controlnext_weights[new_key] = value
-    elif key.startswith(prefix_unet):
-        new_key = key[len(prefix_unet):]
-        unet_weights[new_key] = value
-
-torch.save(unet_weights, '/home/tiennv/trang/chaos/controlnext/khongquantrong/save_weight/unet.bin')
-torch.save(controlnext_weights, '/home/tiennv/trang/chaos/controlnext/khongquantrong/save_weight/controlnext.bin')
-
-print("Unet and ControlNext weights have been split and saved separately with prefixes removed.")
+# Kiểm tra siêu tham số đã được nạp
+# Lưu trọng số của unet
+unet_weights_path = "/home/tiennv/trang/chaos/trash/output/diffusion_pytorch_model.bin"
+torch.save(unet.state_dict(), unet_weights_path)
+print(f"UNet weights saved to {unet_weights_path}")

@@ -1,0 +1,15 @@
+{"time":"2024-12-13T12:23:36.389789244+07:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2024-12-13T12:23:36.389798725+07:00","level":"INFO","msg":"created symlink","path":"/mnt/Userdrive/tiennv/trang/chaos/trash/script_run/wandb/offline-run-20241213_122336-fu74em32/logs/debug-core.log"}
+{"time":"2024-12-13T12:23:36.493706601+07:00","level":"INFO","msg":"created new stream","id":"fu74em32"}
+{"time":"2024-12-13T12:23:36.493763766+07:00","level":"INFO","msg":"stream: started","id":"fu74em32"}
+{"time":"2024-12-13T12:23:36.493877638+07:00","level":"INFO","msg":"writer: Do: started","stream_id":"fu74em32"}
+{"time":"2024-12-13T12:23:36.493923406+07:00","level":"INFO","msg":"sender: started","stream_id":"fu74em32"}
+{"time":"2024-12-13T12:23:36.494014779+07:00","level":"INFO","msg":"handler: started","stream_id":"fu74em32"}
+{"time":"2024-12-13T12:23:36.516764858+07:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-13T12:23:58.640241205+07:00","level":"INFO","msg":"stream: closing","id":"fu74em32"}
+{"time":"2024-12-13T12:23:58.64026032+07:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-12-13T12:23:58.640696772+07:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-12-13T12:23:58.640824874+07:00","level":"INFO","msg":"handler: closed","stream_id":"fu74em32"}
+{"time":"2024-12-13T12:23:58.640831772+07:00","level":"INFO","msg":"writer: Close: closed","stream_id":"fu74em32"}
+{"time":"2024-12-13T12:23:58.640875653+07:00","level":"INFO","msg":"sender: closed","stream_id":"fu74em32"}
+{"time":"2024-12-13T12:23:58.640908534+07:00","level":"INFO","msg":"stream: closed","id":"fu74em32"}
